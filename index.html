@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Bricolage Bois</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f3ed;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #a7732d;
+            color: white;
+            text-align: center;
+            padding: 2rem 0 1rem 0;
+        }
+        nav {
+            background: #d3a467;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem 0;
+            font-size: 1.2rem;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        nav a:hover {
+            background: #a7732d;
+        }
+        .overlay-frame {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            background: rgba(220, 194, 153, 0.98);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .frame-content {
+            max-width: 900px;
+            width: 90vw;
+            padding: 2rem;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.13);
+            position: relative;
+        }
+        .close-btn {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #a7732d;
+            color: white;
+            border: none;
+            font-size: 1.5rem;
+            border-radius: 50%;
+            width: 40px; height: 40px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gallery-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .gallery-images img {
+            width: 220px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+        }
+        footer {
+            text-align: center;
+            color: #a7732d;
+            margin: 3rem 0 2rem 0;
+            font-size: 1rem;
+        }
+    </style>
+    <script>
+        function openFrame(frameId) {
+            document.getElementById('projetsFrame').style.display = 'none';
+            document.getElementById('competencesFrame').style.display = 'none';
+            document.getElementById('galerieFrame').style.display = 'none';
+            document.getElementById('contactFrame').style.display = 'none';
+            document.getElementById(frameId).style.display = 'flex';
+        }
+        function closeFrame(frameId) {
+            document.getElementById(frameId).style.display = 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Mon Portfolio Bricolage Bois</h1>
+        <p>Présenté par [Ton Nom]</p>
+    </header>
+    <nav>
+        <a href="javascript:void(0);" onclick="openFrame('projetsFrame')">Projets</a>
+        <a href="javascript:void(0);" onclick="openFrame('competencesFrame')">Compétences</a>
+        <a href="javascript:void(0);" onclick="openFrame('galerieFrame')">Galerie</a>
+        <a href="javascript:void(0);" onclick="openFrame('contactFrame')">Contact</a>
+    </nav>
+    <!-- Frames overlay pour chaque menu -->
+    <div id="projetsFrame" class="overlay-frame">
+        <div class="frame-content">
+            <button class="close-btn" onclick="closeFrame('projetsFrame')">&times;</button>
+            <h2>Mes Réalisations</h2>
+            <div class="projects">
+                <div class="project">
+                    <img src="images/tabouret.jpg" alt="Tabouret en bois">
+                    <h3>Tabouret en bois</h3>
+                    <p>Chêne massif, assemblage tenon-mortaise.</p>
+                </div>
+                <div class="project">
+                    <img src="images/etagere.jpg" alt="Étagère murale">
+                    <h3>Étagère murale</h3>
+                    <p>Conception sur mesure.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="competencesFrame" class="overlay-frame">
+        <div class="frame-content">
+            <button class="close-btn" onclick="closeFrame('competencesFrame')">&times;</button>
+            <h2>Compétences</h2>
+            <ul>
+                <li>Découpe et assemblage de bois</li>
+                <li>Utilisation d'outils électroportatifs</li>
+                <li>Finitions (ponçage, vernis, peinture)</li>
+                <li>Plans et mesures géométriques</li>
+            </ul>
+        </div>
+    </div>
+    <div id="galerieFrame" class="overlay-frame">
+        <div class="frame-content">
+            <button class="close-btn" onclick="closeFrame('galerieFrame')">&times;</button>
+            <h2>Galerie d'images</h2>
+            <div class="gallery-images">
+                <img src="images/tabouret.jpg" alt="Projet bois 1">
+                <img src="images/etagere.jpg" alt="Projet bois 2">
+                <img src="images/autre.jpg" alt="Projet bois 3">
+                <!-- Ajoute ici d'autres images si besoin -->
+            </div>
+        </div>
+    </div>
+    <div id="contactFrame" class="overlay-frame">
+        <div class="frame-content">
+            <button class="close-btn" onclick="closeFrame('contactFrame')">&times;</button>
+            <h2>Contact</h2>
+            <p>Mail : ton.email@exemple.com</p>
+        </div>
+    </div>
+    <!-- Un contenu principal (optionnel, mais non visible si une frame est ouverte) -->
+    <footer>
+        © 2025 [Ton Nom] | Contact : ton.email@exemple.com
+    </footer>
+</body>
+</html>
